@@ -1,7 +1,11 @@
 .box {
     border : 1px solid black;
-
+    width : 500px;
 }
-.app {
+.item-img {
+    width : 400px;
+}
+.main {
     display : flex;
+    flex-direction: row;
 }
