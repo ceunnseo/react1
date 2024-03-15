@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Box from './component/Box'
 import "./App.css"
 
@@ -16,14 +17,65 @@ const choice = {
   },
 }
 function App() {
+  const [userSelect, setUserSelect] = useState(null) //내가 선택한 가위, 바위, 보에 대한 값을 담는 userSelect
+  const [computerSelect, setComputerSelect] = useState(null) //랜덤 가위, 바위, 보에 대한 값을 담은 computerSelect
+  const [result, setResult] = useState(""); //게임의 결과를 담는 result
   const play = (userChoice) => {
-    console.log("선택됨", userChoice)
+    setUserSelect(choice[userChoice]);
+    let computerChoice = randomChoice();
+    setComputerSelect(computerChoice);
+    judgement(choice[userChoice],computerChoice); //나의 값과 컴퓨터의 값을 object 형태로 전달
+  };
+
+  const judgement = (user, computer) => {
+    console.log(user.name)
+    if (user.name === "Rock") {
+      if (computer.name === "Rock") {
+        setResult("Tie")
+      }
+      else if (computer.name === "Scissors") {
+        setResult("Win")
+      }
+      else if (computer.name === "Paper") {
+        setResult("Lose")
+      }
+    }
+    else if (user.name === "Scissors") {
+      if (computer.name === "Scissors") {
+        setResult("Tie")
+      }
+      else if (computer.name === "Paper") {
+        setResult("Win")
+      }
+      else if (computer.name === "Rock") {
+        setResult("Lose")
+      }
+    }
+    else if (user.name === "Paper") {
+      if (computer.name === "Paper") {
+        setResult("Tie")
+      }
+      else if (computer.name === "Rock") {
+        setResult("Win")
+      }
+      else if (computer.name === "Scissors") {
+        setResult("Lose")
+      }
+    }
+  }
+  const randomChoice = () => {
+    let itemArray = Object.keys(choice);
+    //객체의 key값만 뽑아 array로 만들어주는 object.keys 함수
+    console.log("item array", itemArray);
+    let randomItem = Math.floor(Math.random() * itemArray.length);
+    let final = itemArray[randomItem]
+    return choice[final];
   }
   return (
   <div>
     <div className = "main">
-      <Box title="you"/>
-      <Box title="computer"/>
+      <Box title="you" item = {userSelect} result = {result}/>
+      <Box title="computer" item = {computerSelect} result = {result === "Tie" ? "Tie" : (result === "Win" ? "Lose" : "Win") }/>
     </div>
     <div className = "main">
         <button onClick={() => play("scissors")}>가위</button>
