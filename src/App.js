@@ -28,39 +28,17 @@ function App() {
   };
 
   const judgement = (user, computer) => {
-    console.log(user.name)
-    if (user.name === "Rock") {
-      if (computer.name === "Rock") {
-        setResult("Tie")
-      }
-      else if (computer.name === "Scissors") {
-        setResult("Win")
-      }
-      else if (computer.name === "Paper") {
-        setResult("Lose")
-      }
+    if (user.name === computer.name) {
+      setResult("Tie")
+    }
+    else if (user.name === "Rock") {
+      setResult(computer.name === "Scissors" ? "Win" : "Lose")
     }
     else if (user.name === "Scissors") {
-      if (computer.name === "Scissors") {
-        setResult("Tie")
-      }
-      else if (computer.name === "Paper") {
-        setResult("Win")
-      }
-      else if (computer.name === "Rock") {
-        setResult("Lose")
-      }
+      setResult(computer.name === "Paper" ? "Win" : "Lose")
     }
     else if (user.name === "Paper") {
-      if (computer.name === "Paper") {
-        setResult("Tie")
-      }
-      else if (computer.name === "Rock") {
-        setResult("Win")
-      }
-      else if (computer.name === "Scissors") {
-        setResult("Lose")
-      }
+      setResult(computer.name === "Rock" ? "Win" : "Lose")
     }
   }
   const randomChoice = () => {
