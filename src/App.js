@@ -89,7 +89,7 @@ function App() {
           <button onClick={() => play("rock")}>✊</button>
           <button onClick={() => play("paper")}>✋</button>
           <button onClick={() => reset()}>🔄️</button>
-          <div>이긴 횟수 : {winCnt} / 시도횟수 : {tryCnt}</div>
+          <div id = "score">이긴 횟수 : {winCnt} / 시도횟수 : {tryCnt}</div>
       </div>
     </div> : 
     <End result = {winCnt} 
