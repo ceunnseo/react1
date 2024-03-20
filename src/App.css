@@ -1,11 +1,148 @@
+/*농담곰 폰트*/
+@font-face {
+    font-family: 'UhBeeSe_hyun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeSe_hyun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*화면 전체에 대한 정렬*/
+body {
+    height : 100vh;
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*가위바위보 전체 화면*/
+/*박스*/
 .box {
-    border : 1px solid black;
+    border : 2px solid black;
     width : 500px;
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Win {
+    border : 2px solid green;
+}
+.Win h2{
+    color : green;
+}
+.Lose {
+    border : 2px solid red;
+}
+.Lose h2{
+    color: red;
+}
+.Tie {
+    border : 2px solid black;
+}
+.Tie h2{
+    color : black;
 }
 .item-img {
     width : 400px;
+    height : 400px;
 }
 .main {
     display : flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.btnMain button{
+    margin : 10px;
+}
+#vs {
+    font-size : 50px;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    font-family: 'UhBeeSe_hyun';
+    border : none;
+    font-size : 30px;
+    border-radius : 25px;
+    cursor : pointer;
+    box-shadow : 1px 4px 0 rgb(0, 0, 0, 0.5);
+}
+button:active {
+    box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+    position : relative;
+    top : 2px;
+}
+
+
+/*인트로 페이지*/
+.intro {
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.introImage {
+    width : 500px;
+    height : 500px;
+    background-image: url('../public/img/introImage.jpeg');
+    background-repeat: no-repeat;
+    background-size : cover;
+}
+h1 {
+    font-family: 'UhBeeSe_hyun';
+    text-align: center;
+    
+}
+
+/*게임 종료*/
+.end img {
+    width : 300px;
+}
+.end {
+    font-family: 'UhBeeSe_hyun';
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*미디어쿼리 - 모바일 & 태블릿*/
+@media (max-width : 992px) {
+    .introImage {
+        width : 300px;
+        height : 300px;
+    }
+    .box {
+        width : 200px;
+    }
+    .item-img {
+        width : 100px;
+        height : 100px;
+    }
+    #vs {
+        font-size : 25px;
+    }
+    h1 {
+        font-size : 18px;
+    }
+    h2 {
+        font-size : 13px;
+    }
+    button {
+        font-family: 'UhBeeSe_hyun';
+        border : none;
+        font-size : 15px;
+        border-radius : 10px;
+        cursor : pointer;
+        box-shadow : 1px 4px 0 rgb(0, 0, 0, 0.5);
+    }
+    button:active {
+        box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+        position : relative;
+        top : 2px;
+    }
 }
